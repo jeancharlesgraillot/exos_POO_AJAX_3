@@ -43,7 +43,8 @@
           <input type="text" name="productDescription" id="productDescription"><br>
 
 
-          <input id="getValues" value="Envoyer" type="button" onclick="FormManager()">
+          <input id="getValues" value="Envoyer" type="button" onclick="FormManager(), this.form.reset()">
+          <!-- <INPUT TYPE="button" VALUE="Rétablir les valeurs par défaut" onClick="this.form.reset();"> -->
         </form>
       </div>
       <div class="col-6 row m-0 p-0" id="bodyCard">

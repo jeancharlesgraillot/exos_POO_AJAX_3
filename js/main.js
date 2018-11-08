@@ -8,9 +8,6 @@ let getValues = document.getElementById('getValues');
 
 
 
-let cardTitle = document.getElementsByClassName('card-title');
-let cardCatch = document.getElementsByClassName('card-text');
-let cardDesc = document.getElementsByClassName('card-description');
 
 // récupérer les données des inputs, créer un produits et
 // l 'insérer dans le DOM
@@ -21,10 +18,13 @@ function Product(title, catchphrase, description) {
   this.description = description;
 }
 
+//Get inputs data    
+let title = document.getElementById('title').value;
+let catchphrase = document.getElementById('catchphrase').value;
+let description = document.getElementById('productDescription').value;
 
 function FormManager() {
 
-  //Get inputs data    
   let title = document.getElementById('title').value;
   let catchphrase = document.getElementById('catchphrase').value;
   let description = document.getElementById('productDescription').value;
@@ -36,21 +36,21 @@ function FormManager() {
     createHTMLElement: function (element, title, catchphrase, description, parentElement) {
 
       let boxElement = document.createElement(element)
-      boxElement.className = "col-12 m-0 p-0 mx-auto m-2 border border-dark"
+      boxElement.className = "col-5 m-0 p-0 mx-auto m-2 border border-dark"
       parentElement.appendChild(boxElement)
 
       let titleElement = document.createElement(element)
-      titleElement.className = "col-12 m-0 p-0 text-center border border-bottom-dark"
+      titleElement.className = "col-5 m-0 p-0 text-center "
       titleElement.innerHTML = title
       boxElement.appendChild(titleElement)
 
       let catchphraseElement = document.createElement(element)
-      catchphraseElement.className = "col-12 m-0 pl-2 text-left border border-bottom-dark"
+      catchphraseElement.className = "col-5 m-0 pl-2 text-left "
       catchphraseElement.innerHTML = catchphrase
       boxElement.appendChild(catchphraseElement)
 
       let descriptionElement = document.createElement(element)
-      descriptionElement.className = "col-12 m-0 pl-2 text-left"
+      descriptionElement.className = "col-5 m-0 pl-2 text-left"
       descriptionElement.innerHTML = description
       boxElement.appendChild(descriptionElement)
 
@@ -66,32 +66,3 @@ function FormManager() {
   }
   htmlManager.displayProduct(htmlManager.productCards);
 }
-
-// let htmlManager = {
-
-//   parentElement: document.getElementById('userlist'),
-//   users: [john, toto, coco],
-//   createHTMLElement: function (element, content, parentElement) {
-//     let childElement = document.createElement(element)
-//     childElement.innerHTML = content
-//     parentElement.appendChild(childElement)
-//   },
-//   displayUser: function (array) {
-//     let that = this;
-//     this.users.forEach(function (user) {
-//       that.createHTMLElement('li', user.fullname(), that.parentElement)
-//     })
-//   },
-// };
-
-// function User(firstname, lastname) {
-//   this.firstname = firstname;
-//   this.lastname = lastname;
-//   this.fullname = function () {
-//     return this.firstname + " " + this.lastname;
-//   };
-// }
-
-// let john = new User('John', 'Doe');
-// let toto = new User('Toto', 'Lebléro');
-// let coco = new User('Coco', 'Lastico');
