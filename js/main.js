@@ -1,16 +1,6 @@
 // Exo 3
 
-// un objet pour créer vos produits
-// • un objet pour gérer votre formulaire(récupérer les données des inputs, créer un produits et
-// l'insérer dans le DOM)
-
 let getValues = document.getElementById('getValues');
-
-
-
-
-// récupérer les données des inputs, créer un produits et
-// l 'insérer dans le DOM
 
 function Product(title, catchphrase, description) {
   this.title = title;
@@ -18,21 +8,24 @@ function Product(title, catchphrase, description) {
   this.description = description;
 }
 
-//Get inputs data    
-let title = document.getElementById('title').value;
-let catchphrase = document.getElementById('catchphrase').value;
-let description = document.getElementById('productDescription').value;
-
 function FormManager() {
 
+  // Get inputs data
   let title = document.getElementById('title').value;
   let catchphrase = document.getElementById('catchphrase').value;
   let description = document.getElementById('productDescription').value;
+
+  // Function Product call to create a new product
   newProduct = new Product(title, catchphrase, description);
 
+  // An object to create html elements who'll contain product data
   let htmlManager = {
+
     parentElement: document.getElementById('bodyCard'),
+
+    // A variable to put the new product in a table so that clicking on html button, it'll be replaced
     productCards: [newProduct],
+
     createHTMLElement: function (element, title, catchphrase, description, parentElement) {
 
       let boxElement = document.createElement(element)
@@ -56,6 +49,7 @@ function FormManager() {
 
     },
 
+    // A function to display created elements
     displayProduct: function (array) {
       let that = this;
       array.forEach(function (productCard) {
@@ -64,5 +58,6 @@ function FormManager() {
     },
 
   }
+  // Display product cards
   htmlManager.displayProduct(htmlManager.productCards);
 }
